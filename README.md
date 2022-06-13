@@ -61,18 +61,14 @@ Solution
 - Clone the repository
 
      ```
-     git clone <repository url>
+     git clone https://github.com/miladra/eurovision-song-contest.git
      
      ```
 
-- Compile by Gradle, run:
-
-     ```
-     ./gradlew clean bootJar
-     ```
-- Guild by Gradle, run:
+- Clean and Build by Gradle, run:
      ```
      ./gradlew clean build
+     
      ```
 
 ## Testing
@@ -129,7 +125,7 @@ http://localhost:8080/swagger-ui/index.html
 - **I have left open the Pull Requests from branches for simplicity**
 ### Future improvements
 * Upgrade to Java 16
-* Add Integration tests with continerized database, Architecture tests, End to END tests
+* Add Integration tests with continerized database, Architecture tests, End to End tests
 * Add a security layer such as JWT
 * Consider concurrency topics. adding versioning to handle optimistic locking
 * Create deployment pipelines to build and deploy the artifact into different environments
