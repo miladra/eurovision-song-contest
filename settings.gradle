@@ -1,0 +1,16 @@
+
+pluginManagement {
+    repositories {
+        maven {url "https://plugins.gradle.org/m2/"}
+        maven { url 'https://repo.spring.io/milestone' }
+        gradlePluginPortal()
+    }
+    plugins {
+        id 'org.springframework.boot' version "${springBootVersion}"
+        id 'com.gorylenko.gradle-git-properties' version "${gitPropertiesPluginVersion}"
+        id 'org.liquibase.gradle' version "${liquibasePluginVersion}"
+        id 'org.sonarqube' version "${sonarqubePluginVersion}"
+    }
+}
+
+rootProject.name = "vote"
