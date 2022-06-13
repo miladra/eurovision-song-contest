@@ -29,11 +29,13 @@ Java-based backend application that implements eurovision song contest voting sy
 - Vote entity was used for recording voting results.
 
 - I considered multi songs are able to get the same position, for example, France and Germany get 2nd place at the same time. in this case, the report Is shown as follows.
-- {
-- "first": "Netherlands",
-- "second": "France,Germany",
-- "third": "Estonia"
-- }
+     ```
+        {
+          "first": "Netherlands",
+          "second": "France,Germany",
+          "third": "Estonia"
+        }
+     ```
 
 Solution
 - The first solution that came to my mind was to record each vote in the database. then by getting a request I must get computation the result of the voting every time. but I thought when we have millions of users, it is not efficient,
