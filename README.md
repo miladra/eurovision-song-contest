@@ -28,6 +28,13 @@ Java-based backend application that implements eurovision song contest voting sy
 - VoteHistory records each user's vote and prevents double voting of the user for each year.
 - Vote entity was used for recording voting results.
 
+- I considered multi songs are able to get the same position, for example, France and Germany get 2nd place at the same time. in this case, the report Is shown as follows.
+- {
+- "first": "Netherlands",
+- "second": "France,Germany",
+- "third": "Estonia"
+- }
+
 Solution
 - The first solution that came to my mind was to record each vote in the database. then by getting a request I must get computation the result of the voting every time. but I thought when we have millions of users, it is not efficient,
 - so in order to increase performance, I computed the vote for each country and recorded it in the Vote entity during voting time.
@@ -128,9 +135,3 @@ http://localhost:8080/swagger-ui/index.html
 * Create deployment pipelines to build and deploy the artifact into different environments
 
 ###### By: Milad Ranjbari
-
-{
-"first": "Netherlands",
-"second": "France,Germany",
-"third": "Estonia"
-}
