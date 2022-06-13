@@ -1,0 +1,32 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+#
+# This configuration overrides the application.yml file.
+
+logging:
+  level:
+    ROOT: DEBUG
+    org.hibernate.SQL: DEBUG
+    com.pegasystems.vote: DEBUG
+
+spring:
+  jackson:
+    serialization:
+      indent-output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/vote
+    username: vote
+    password: vote
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+  liquibase:
+#    # Remove 'faker' if you do not want the sample data to be loaded automatically
+    contexts: dev , faker
+
+server:
+  port: 8080
+

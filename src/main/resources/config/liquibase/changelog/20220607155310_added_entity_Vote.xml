@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Vote.
+    -->
+    <changeSet id="20220607155310-1" author="milad">
+        <createTable tableName="vote">
+            <column name="id" autoIncrement="true" startWith="11" incrementBy="1" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="key" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="year" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="country_from" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="country_to" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="count" type="bigint">
+                <constraints nullable="true" />
+            </column>
+        </createTable>
+    </changeSet>
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220607155310-1-data" author="milad" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/vote.csv"
+                  separator=";"
+                  tableName="vote"
+                  usePreparedStatements="true">
+            <column name="key" type="string"/>
+            <column name="year" type="numeric"/>
+            <column name="country_from" type="string"/>
+            <column name="country_to" type="string"/>
+            <column name="count" type="numeric"/>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

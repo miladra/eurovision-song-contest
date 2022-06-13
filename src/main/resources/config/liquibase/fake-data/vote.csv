@@ -1,0 +1,11 @@
+id;key;year;country_from;country_to;count
+1;2022BelgiumNetherlands;2022;Belgium;Netherlands;31064
+2;2022NetherlandsFrance;2022;Netherlands;France;11000
+3;2022NetherlandsGermany;2022;Netherlands;Germany;21000
+4;2022NetherlandsEstonia;2022;Netherlands;Estonia;200
+5;2022EstoniaFrance;2022;Estonia;France;10000
+6;2022BelgiumEstonia;2022;Belgium;Estonia;19444
+7;2022BelgiumDenmark;2022;Belgium;Denmark;19642
+8;2021SlovakiaAustria;2021;Slovakia;Austria;10558
+9;2021SwedenGreece;2021;Sweden;Greece;5530
+10;2021PolandMalta;2021;Poland;Malta;816
