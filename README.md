@@ -49,15 +49,20 @@ Solution
 
 ### initial data
 
-- Liquebase will create the initial list of vote in the dev profile
+- Liquibase will create the initial list of vote in the dev profile
 
 ### Build and run the application standalone
 
 - In order to run tha application you can use local database or you can run postgres by below command
 
     ```
-    docker-compose -f src/main/docker/postgresql.yml up
+    docker-compose -f src/main/docker/postgresql.yml up -d
     
+    ```
+- To stop it and remove the container, run:
+
+    ```
+    docker-compose -f src/main/docker/postgresql.yml down
     ```
 
 - Clone the repository
@@ -109,13 +114,17 @@ To launch application's tests, run:
 - Then you can run below command by maven
 
    ```
-   ./gradlew -Pprod clean check sonarqube -Dsonar.host.url=http://localhost:9001 -Dsonar.login='284677e4f6bf3f0017a209915fb5b6d5a0d84db1'
+   ./gradlew -Pprod clean check sonarqube -Dsonar.host.url=http://localhost:9001 -Dsonar.login='generatedToken'
     
    ```
 
 ## API documentation
 
 http://localhost:8080/swagger-ui/index.html
+
+## Continuous Integration
+
+I use Github action for ci.
 
 ## Development Strategy
 

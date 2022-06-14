@@ -55,13 +55,6 @@ if (project.hasProperty("gae")) {
     appengineStage.dependsOn thinResolve
 }
 
-
-idea {
-    module {
-        excludeDirs += files("node_modules")
-    }
-}
-
 eclipse {
     sourceSets {
         main {
@@ -192,7 +185,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-undertow"
     implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
     implementation 'org.zalando:problem-spring-web:0.27.0'
-    implementation 'org.springdoc:springdoc-openapi-webmvc-core:1.6.9'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.9'
     implementation 'org.testcontainers:postgresql:1.17.2'
     liquibaseRuntime "org.postgresql:postgresql:42.4.0"
     implementation 'org.postgresql:postgresql:42.4.0'
