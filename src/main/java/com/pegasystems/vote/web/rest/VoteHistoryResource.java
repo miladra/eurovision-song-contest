@@ -62,13 +62,10 @@ public class VoteHistoryResource {
         if (voteHistoryDTO.getId() != null) {
             throw new BadRequestAlertException(String.format(messages.getMessage("vote.alreadyhaveid", null, new Locale(lang))), ENTITY_NAME, "alreadyhaveid");
         }
-        if (voteHistoryDTO.getUserID() == null) {
-            throw new BadRequestAlertException(String.format(messages.getMessage("vote.useridnotexist", null, new Locale(lang))), ENTITY_NAME, "useridnotexist");
-        } else {
-            Optional<VoteHistoryDTO> result = voteHistoryService.findByUserIDAndYear(voteHistoryDTO.getUserID(),year);
-            if(result.isPresent()){
-                throw new BadRequestAlertException(String.format(messages.getMessage("request.id.duplicated", null, new Locale(lang))), ENTITY_NAME, "useridduplicated");
-            }
+
+        Optional<VoteHistoryDTO> VoteHistoryDTO = voteHistoryService.findByUserIDAndYear(voteHistoryDTO.getUserID(),year);
+        if(VoteHistoryDTO.isPresent()){
+            throw new BadRequestAlertException(String.format(messages.getMessage("request.id.duplicated", null, new Locale(lang))), ENTITY_NAME, "useridduplicated");
         }
 
         VoteHistoryDTO result = voteHistoryService.save(year,voteHistoryDTO);

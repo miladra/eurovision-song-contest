@@ -101,15 +101,15 @@ To launch application's tests, run:
 - I specific Docker Compose configuration for Sonar
 
    ```
-   docker-compose -f docker/sonar.yml up -d
+   docker-compose -f src/main/docker/sonar.yml up -d
     
    ```
-- SonarQube default login and assword is "admin"
-- You need to get token from: in right top of sonarQube pannel -> User(Administrator) > My Account > Security > Generate Tokens
+- SonarQube default login and password is "admin"
+- You need to get token from: in right top of sonarQube panel -> User(Administrator) > My Account > Security > Generate Tokens
 - Then you can run below command by maven
 
    ```
-   mvn sonar:sonar -Dsonar.host.url=http://localhost:9001 -Dsonar.login='GeneratedToken'
+   ./gradlew -Pprod clean check sonarqube -Dsonar.host.url=http://localhost:9001 -Dsonar.login='284677e4f6bf3f0017a209915fb5b6d5a0d84db1'
     
    ```
 
