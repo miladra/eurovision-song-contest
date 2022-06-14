@@ -25,8 +25,8 @@ Java-based backend application that implements eurovision song contest voting sy
 
 - In order to prevent fraud, I add userId and each userId only can vote once time in each year.
 - I considered two entities VoteHistory and Vote.
-- VoteHistory records each user's vote and prevents double voting of the user for each year.
-- Vote entity was used for recording voting results.
+  - VoteHistory records each user's vote and prevents double voting of the user for each year.
+  - Vote entity was used for recording voting results.
 
 - I considered multi songs are able to get the same position, for example, France and Germany get 2nd place at the same time. in this case, the report Is shown as follows.
      ```
@@ -38,13 +38,10 @@ Java-based backend application that implements eurovision song contest voting sy
      ```
 
 Solution
-- The first solution that came to my mind was to record each vote in the database. then by getting a request I must get computation the result of the voting every time. but I thought when we have millions of users, it is not efficient,
-- so in order to increase performance, I computed the vote for each country and recorded it in the Vote entity during voting time.
-- In this case, I needed to read Votes and increase them and write them again, hence In order to increase performance,
-- I used Cache (In this case I used caffeine cache because it is simple, in production other tools like Redies will be better because it provides features like clustering and persistence).
-- First If data exist in the cache I read it from the cache and update it then write it into the database.
-- if data does not exist in the cache I would read it from the database and then update it.
-- so in this way, I reduce hit the database when data is read once.
+- The first solution that came to my mind was to record each vote in the database, then by getting a request I must get computation the result of the voting every time. but I thought when we have millions of users, it is not efficient, so in order to increase performance, I computed the vote for each country and recorded it in the Vote entity during voting time.  
+- In this case, I needed to read Votes and increase them and write them again, hence In order to increase performance,    
+  I used Cache (In this case I used caffeine cache because it is simple, in production other tools like Redies will be better because it provides features like clustering and persistence).
+  First If data exist in the cache I read it from the cache and update it then write it into the database, if data does not exist in the cache I would read it from the database and then update it, so in this way, I reduce hit the database when data is read once.
 - The application supports 2 language (nl, en) as a query param. ?lang=en OR lang=nl
 
 ### initial data
@@ -82,19 +79,18 @@ Solution
 
 To launch application's tests, run:
 
-```
-./gradlew test integrationTest jacocoTestReport
-```
+     ```
+     ./gradlew test integrationTest jacocoTestReport
+     ```
 
 ## Using Docker to development (optional)
 
 - In root directory
 
-   ```
-    ./gradlew clean build
-
-     docker-compose -f app.yml up
-   ```
+     ```
+      ./gradlew clean build
+      docker-compose -f app.yml up
+     ```
 
 ## Postman:
 
@@ -120,7 +116,7 @@ To launch application's tests, run:
 
 ## API documentation
 
-http://localhost:8080/swagger-ui/index.html
+ http://localhost:8080/swagger-ui/index.html
 
 ## Continuous Integration
 
