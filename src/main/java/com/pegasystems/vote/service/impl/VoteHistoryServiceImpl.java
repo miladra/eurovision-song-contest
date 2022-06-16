@@ -47,7 +47,7 @@ public class VoteHistoryServiceImpl implements VoteHistoryService {
     @Transactional
     public VoteHistoryDTO save(Integer year, VoteHistoryDTO voteHistoryDTO) throws Exception {
         log.debug("Request to save VoteHistory : {}", voteHistoryDTO);
-        String cacheKey = year + voteHistoryDTO.getCountryFrom() + voteHistoryDTO.getCountryTo();
+        String cacheKey = getKey(year, voteHistoryDTO);
         Long cacheValue = cache.getIfPresent(cacheKey);
         try {
             if (Objects.isNull(cacheValue)) {
@@ -98,4 +98,11 @@ public class VoteHistoryServiceImpl implements VoteHistoryService {
     public Optional<VoteHistoryDTO> findByUserIDAndYear(Integer userId, Integer year) {
         return voteHistoryRepository.findByUserIDAndYear(userId , year).map(voteHistoryMapper::toDto);
     }
+    
+    private String getKey(Integer year, VoteHistoryDTO voteHistoryDTO) {
+        StringBuilder sb = new StringBuilder();
+        return sb.append(year)
+                .append(voteHistoryDTO.getCountryFrom())
+                .append(voteHistoryDTO.getCountryTo()).toString();
+    }  
 }
