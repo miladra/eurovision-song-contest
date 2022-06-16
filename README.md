@@ -50,6 +50,8 @@ Solution
 
 ### Build and run the application standalone
 
+- For opening in ide please install suitable Lombok plugin for your IDE.
+
 - In order to run tha application you can use local database or you can run postgres by below command
 
     ```
