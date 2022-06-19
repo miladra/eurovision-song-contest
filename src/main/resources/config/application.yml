@@ -15,7 +15,6 @@ spring:
     group:
       dev:
         - dev
-        - api-docs
   jpa:
     open-in-view: false
     properties:
