@@ -76,14 +76,18 @@ Solution
      ./gradlew clean build
      
      ```
+- Run the application:
+
+     ```
+     ./gradlew bootRun -Dspring-boot.run.profiles=dev
+     ```
 
 ## Testing
 
-To launch application's tests, run:
-
-     ```
-     ./gradlew test integrationTest jacocoTestReport
-     ```
+  To launch application's tests, run:
+   ```
+        ./gradlew test integrationTest jacocoTestReport
+   ```
 
 ## Using Docker to development (optional)
 
@@ -91,6 +95,7 @@ To launch application's tests, run:
 
      ```
       ./gradlew clean build
+      
       docker-compose -f app.yml up
      ```
 
@@ -138,5 +143,7 @@ I use Github action for ci.
 * Add a security layer such as JWT
 * Consider concurrency topics. adding versioning to handle optimistic locking
 * Create deployment pipelines to build and deploy the artifact into different environments
+* Manage server-side error page,
+* Enable or Disable Swager between dev or prod profile
 
 ###### By: Milad Ranjbari
