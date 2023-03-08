@@ -19,7 +19,7 @@ plugins {
     id "org.sonarqube"
 }
 
-group = "com.pegasystems.vote"
+group = "com.amazing.vote"
 version = "0.0.1-SNAPSHOT"
 
 description = ""
@@ -68,7 +68,7 @@ eclipse {
 defaultTasks "bootRun"
 
 springBoot {
-    mainClass = "com.pegasystems.vote.VoteApp"
+    mainClass = "com.amazing.vote.VoteApp"
 }
 
 test {
@@ -118,7 +118,7 @@ liquibase {
             username "vote"
             password "vote"
             changeLogFile project.ext.diffChangelogFile
-            referenceUrl "hibernate:spring:com.pegasystems.vote.domain?dialect=org.hibernate.dialect.PostgreSQL10Dialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"
+            referenceUrl "hibernate:spring:com.amazing.vote.domain?dialect=org.hibernate.dialect.PostgreSQL10Dialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"
             defaultSchemaName ""
             logLevel "debug"
             classpath "$buildDir/classes/java/main"

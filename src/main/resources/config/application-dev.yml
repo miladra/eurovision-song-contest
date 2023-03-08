@@ -7,7 +7,7 @@ logging:
   level:
     ROOT: DEBUG
     org.hibernate.SQL: DEBUG
-    com.pegasystems.vote: DEBUG
+    com.amazing.vote: DEBUG
 
 spring:
   jackson:

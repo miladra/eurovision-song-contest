@@ -1,7 +1,7 @@
 apply plugin: "war"
 
 bootWar {
-    mainClass = "com.pegasystems.vote.VoteApp"
+    mainClass = "com.amazing.vote.VoteApp"
     includes = ["WEB-INF/**", "META-INF/**"]
 }
 
